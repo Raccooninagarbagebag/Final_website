@@ -1,0 +1,700 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inknut Antiqua', serif;
+    line-height: 1.5;
+    background: white;
+}
+
+#Home_wrap {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 45px 40px 122px 77.5px 400px 1fr;
+    grid-template-areas:
+        "header header header header header header header header"
+        "blank blank blank blank blank blank blank blank"
+        "banner banner banner banner banner banner banner banner"
+        "motto motto motto motto motto motto motto motto"
+        ". images images images scrollable scrollable scrollable ."
+        ". images images images scrollable scrollable scrollable ."
+        "footer footer footer footer footer footer footer footer";
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    max-width: 250px;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.logo:hover {
+    filter: invert(1);
+}
+
+.header {
+    background-color: #4E4B69;
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.site_title {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: clamp(7vw, 20vw, 300px);
+    white-space: nowrap;
+}
+.site_title:hover {
+    background-color: #A4ACDF;
+    color: #2E2A2A;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.site_title a {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+}
+.site_title a:hover {
+    color: #2E2A2A;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.Navigationbar {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    
+}
+
+.Navigationbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 15px;
+    transition: 0.3s;
+}
+
+.Navigationbar a:hover, .Navigationbar .active {
+    background-color: #A4ACDF;
+    color: #2E2A2A;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.banner {
+    background: url("images/Front_Page_Image.png") center/cover no-repeat;
+    grid-area: banner;
+}
+
+.motto {
+    background: white;
+    grid-area: motto;
+    color: #934376;
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.images-container {
+    grid-area: images;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    justify-content: center;
+    max-height: 700px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-right: 10px;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.image-1, .image-2, .image-3 {
+    height: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.image-1 { background-image: url("images/Image_1.png"); }
+.image-2 { background-image: url("images/Image_2.png"); }
+.image-3 { background-image: url("images/Image_3.png"); }
+
+.scrollable {
+    background: #C1C8F4;
+    grid-area: scrollable;
+    color: white;
+    overflow-y: auto;
+    border: 20px solid #A4ACDF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: clamp(500px, 50vh, 700px);
+    max-width: 500px;
+    margin-left:20px;
+}
+
+.scrollable h2 {
+    background: #6b6981;
+    font-size: clamp(24px, 5vw, 30px);
+    padding: 5px;
+    color: white;
+    text-align: center;
+    top: 0;
+}
+
+.scrollable ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    color: #2E2A2A;
+    font-size: 22.5px;
+    line-height: 4;
+}
+
+.footer {
+    background: white;
+    grid-area: footer;
+    padding: 20px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.footer-text {
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    padding: 10px;
+}
+@media screen and (max-width: 800px) {
+    #home_wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto auto;
+        grid-template-areas:
+            "header"
+            "blank"
+            "banner"
+            "motto"
+            "images"
+            "scrollable"
+            "footer";
+    }
+    .site_title {
+        font-size: clamp(18px, 4vw, 20px);
+        padding-left: clamp(5vw, 30vw, 300px);
+    }
+    .logo {
+        width: 40vw;
+        max-width: 150px;
+    }
+
+    .header {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+    }
+
+    .Navigationbar {
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+        background: #4E4B69;
+        position: absolute;
+        right: 10px;
+        top: 50px;
+        padding: 10px;
+        border-radius: 5px;
+        list-style: none;
+    }
+
+    .menu-toggle:checked ~ .Navigationbar {
+        display: none;
+    }
+
+    .banner {
+        height: 150px;
+    }
+
+    .motto {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .images-container {
+        grid-area: images;
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .image-1, .image-2, .image-3 {
+        max-width: 100%;
+    }
+
+    .scrollable {
+        grid-area: scrollable;
+       width:100%;
+        max-width: 90%;
+        height: clamp(300px, 40vh, 500px);
+    }
+
+    .scrollable ul {
+        font-size: 18px;
+        line-height: 2.5;
+        text-align: center;
+    }
+}
+
+/* Gallery page style */
+.gallery-wrap {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto; 
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:
+        "header header header header header header"
+        "blank blank blank blank blank blank"
+        "banner banner banner banner banner banner"
+        "page-header-gallery page-header-gallery page-header-gallery page-header-gallery page-header-gallery page-header-gallery"
+        "Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show"
+        "footer footer footer footer footer footer";
+    padding: 20px;
+    gap: 20px;
+    background: white;
+}
+
+.page-header-gallery {
+    grid-area: page-header-gallery;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+
+.Mc-Dougal-Art-Show {
+    grid-area: Mc-Dougal-Art-Show;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4E4B69;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.gallery-container-1 {
+    background: white;
+    grid-area: images;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    justify-content: center;
+}
+.gallery-container-2 {
+    background: white;
+    grid-area: images;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery-image-1, .gallery-image-2, .gallery-image-3, .gallery-image-4 {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: #c9ceed;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.gallery-image-1 { background-image: url("./images/Art_Show_Image_1.png"); }
+.gallery-image-2 { background-image: url("./images/Art_Show_Image_2.png"); }
+.gallery-image-3 { background-image: url("./images/Art_Show_Image_3.png"); }
+.gallery-image-4 { background-image: url("./images/Art_Show_Image_4.png"); }
+
+.Portrait_1, .Portrait_2, .Portrait_3, .Portrait_4, .Portrait_5, .Portrait_6 {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #c9eddb;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.gallery-container-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+    align-items: center;
+}
+.Portrait_1 { background-image: url("images/Portrait_1.png"); }
+.Portrait_2 { background-image: url("images/Portrait_2.png"); }
+.Portrait_3 { background-image: url("images/Portrait_3.png"); }
+.Portrait_4 { background-image: url("images/Portrait_4.png"); }
+.Portrait_5 { background-image: url("images/Portrait_5.png"); }
+.Portrait_6 { background-image: url("images/Portrait_6.png"); }
+@media screen and (max-width: 480px) {
+    .gallery-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
+        grid-template-areas:
+            "header"
+            "blank"
+            "banner"
+            "page-header-gallery"
+            "Mc-Dougal-Art-Show"
+            "images"
+            "footer";
+    }
+
+    .page-header-gallery {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .gallery-container-1, .gallery-container-2 {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .gallery-image-1, .gallery-image-2, .gallery-image-3, .gallery-image-4 {
+        width: 80%;
+        max-width: 250px;
+        aspect-ratio: 4/3;
+    }
+
+    .Portrait_1, .Portrait_2, .Portrait_3, .Portrait_4, .Portrait_5, .Portrait_6 {
+        width: 80%;
+        max-width: 300px;
+        aspect-ratio: 4/3;
+    }
+    .gallery-container-3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        gap: 15px;
+        justify-items: center;
+        align-items: center;
+    }
+}
+/* Recipes Section*/
+.recipes-wrap {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto; 
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:
+        "header header header header header header"
+        "blank blank blank blank blank blank"
+        "banner banner banner banner banner banner"
+        "page-header-recipes page-header-recipes page-header-recipes page-header-recipes page-header-recipes page-header-recipes"
+        "recipe-1 recipe-2 recipe-3 recipe-4 recipe-5 recipe-6"
+        "footer footer footer footer footer footer";
+    padding: 20px;
+    gap: 20px;
+    background: white;
+}
+.page-header-recipes {
+    grid-area: page-header-recipes;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+.recipes-container-1 {
+    background: white;
+    grid-area: images;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    justify-content: center;
+}
+.recipes-container-2 {
+    background: white;
+    grid-area: images;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    justify-content: center;
+}
+.Nachos {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #4b695a;
+}
+.Nachos-ingredients {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4b695a;
+    background-color: #e8f4ee;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+.Nachos-instructions {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4b695a;
+    background-color: #e8f4ee;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+.Pastries {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #4b695a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.Pastries-ingredients {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4b695a;
+    background-color: #e8f4ee;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+.Pastries-instructions {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4b695a;
+    background-color: #e8f4ee;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+.nacho-image-1, .nacho-image-2, .pastry-image-1, .pastry-image-2 {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #c9eddb;
+    background-position: center;
+    border-radius: 10px;
+}
+.nacho-image-1 { background-image: url("./images/Nachos_1.png"); }
+.nacho-image-2 { background-image: url("./images/Nachos_2.png"); }
+.pastry-image-1 { background-image: url("./images/Pastries_1.png"); }
+.pastry-image-2 { background-image: url("./images/Pastries_2.png"); }
+@media screen and (max-width: 480px) {
+    .recipes-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
+        grid-template-areas:
+            "header"
+            "blank"
+            "banner"
+            "page-header-recipes"
+            "recipe-1"
+            "recipe-2"
+            "footer";
+    }
+    .page-header-recipes {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+    }
+    .recipes-container-1, .recipes-container-2 {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .nacho-image-1, .nacho-image-2, .pastry-image-1, .pastry-image-2 {
+        width: 80%;
+        max-width: 250px;
+        aspect-ratio: 4/3;
+    }
+    
+}
+/* Music Section*/
+.page-header-music {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+.spotify-image { background-image: url("./images/Spotify.png")
+}
+.spotify-image {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #e8eff4;
+    background-position: center;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+.spotify-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+.spotify {
+    font-size: 20px;
+    font-weight: bold;
+    color: #934376;
+    text-align: center;
+}
+.Alex-G {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e8eff4;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #505f95;
+}
+.albums {
+    font-size: 20px;
+    font-weight: bold;
+    color: #505f95;
+    background-color: #e8eff4;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+.romanian {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f3e9f2;
+    background-color: #934376;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.romanian-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #934376;
+    background-color: #f3e9f2;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+
+/* About Section*/
+.page-header-about {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+.greeting {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ede35c;
+    padding: 1px;
+    color: #333;
+}
+.my-story {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4E4B69;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.me { background-image: url("./images/me.png"); }
+.me {
+    width: 100%;
+    min-width: 200px;
+    max-width: 300px;
+    aspect-ratio: 2/3;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width: 800px) {
+    .me {
+        width: 100%;
+        max-width: 200px;
+        aspect-ratio: 2/3;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .my-story {
+        flex-direction: column;
+        align-items: center;
+    }
+    .greeting {
+        font-size: 18px;
+    }
+    .page-header-about {
+        font-size: 24px;
+    } 
+}
